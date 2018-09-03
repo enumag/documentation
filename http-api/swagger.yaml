@@ -51,6 +51,23 @@ paths:
           description: Unauthorized
       security:
         - basicAuth: []
+  /admin/scavenge/{scavengeId}:
+    delete:
+      description: Stop a running scavenge operation.
+      summary: Stop a scavenge operation
+      tags:
+      - Admin
+      operationId: Stop a scavenge
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: OK
+        401:
+          description: Unauthorized  
+      security:
+        - basicAuth: []        
   /info:
     get:
       description: Returns information about node.
