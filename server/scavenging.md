@@ -15,11 +15,7 @@ A scavenge reclaims disk space by rewriting your database chunks, minus the even
 
 Scavenges are not run automatically by Event Store. We recommendation that you set up a scheduled task, for example using cron or Windows Scheduler, to trigger a scavenge as often as you need.
 
-<<<<<<< HEAD
-You can start a scavenge by issuing an empty `POST` to the HTTP API with the credentials of an `admin` or `ops` user:
-=======
 You can start a scavenge by issuing an empty `POST` request to the HTTP API with the credentials of an `admin` or `ops` user:
->>>>>>> Add new scavenge stop operation
 
 ### [Request](#tab/tabid-8)
 
