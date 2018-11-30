@@ -6,7 +6,7 @@ outputFileName: index.html
 
 When you delete events or streams in Event Store, they aren't removed immediately. To permanently delete these events you need to run a 'scavenge' on your database.
 
-A scavenge reclaims disk space by rewriting your database chunks, minus the events to delete, and then deleting the old chunks. Once a scavenge has run, you cannot recover any deleted events.
+A scavenge reclaims disk space by rewriting your database chunks, minus the events to delete, and then deleting the old chunks. After processing the chunks, the operation updates the chunk indeces.  Once a scavenge has run, you cannot recover any deleted events.
 
 > [!NOTE]
 > Scavenges only affect completed chunks, so deleted events in the current chunk are still there after you run a scavenge.
@@ -67,4 +67,4 @@ curl -i -X DELETE http://localhost:2113/admin/scavenge/{scavengeId} -u "admin:ch
 It's safe to run a scavenge while Event Store is running and processing events, as it's designed to be an online operation.
 
 > [!WARNING]
-> Scavenging increases the number of reads/writes made to disk, and it is not recommended to run it when your system is under heavy load.
+> Scavenging increases the number of reads/writes made to disk, and it is not recommended when your system is under heavy load.
